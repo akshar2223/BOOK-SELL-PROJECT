@@ -1,0 +1,16 @@
+CREATE TABLE public."user"    
+(    
+  id serial NOT NULL,    
+  firstname character varying(50) NOT NULL,    
+  lastname character varying(50) NOT NULL,    
+  email character varying(100) NOT NULL,    	
+  password 	character varying(100) NOT NULL,    	
+  roleid integer Not Null,
+  CONSTRAINT user_pkey PRIMARY KEY (id), 
+   CONSTRAINT fk_role
+      FOREIGN KEY(roleid) 
+	  REFERENCES role(id)
+);    
+    
+ALTER TABLE public."user"  
+  OWNER TO admin;    

@@ -1,0 +1,16 @@
+CREATE TABLE public.book    
+(    
+  id serial NOT NULL,    
+  name character varying(500) NOT NULL,    
+  price  NUMERIC(10, 2) NOT NULL,    
+  description character varying(2000),
+  base64image text, 	
+  categoryid integer NOT NULL,
+  CONSTRAINT book_pkey PRIMARY KEY (id), 
+   CONSTRAINT fk_category
+      FOREIGN KEY(categoryid) 
+	  REFERENCES category(id)
+);    
+    
+ALTER TABLE public.book    
+  OWNER TO admin;    
